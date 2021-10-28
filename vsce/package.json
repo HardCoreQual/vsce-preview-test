@@ -9,17 +9,16 @@
 	"categories": [
 		"Other"
 	],
-	"activationEvents": [
-        "onCommand:vsce.helloWorld"
-	],
+  "activationEvents": ["onCommand:catCoding.start"],
 	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
-			{
-				"command": "vsce.helloWorld",
-				"title": "Hello World"
-			}
-		]
+          {
+            "command": "catCoding.start",
+            "title": "Start new cat coding session",
+            "category": "Cat Coding"
+          }
+        ]
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run package",
