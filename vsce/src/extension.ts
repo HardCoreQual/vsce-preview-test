@@ -1,4 +1,6 @@
 import * as vscode from 'vscode';
+import * as path from "path";
+import * as fs from "fs";
 
 
 function getWebviewContent() {
@@ -22,10 +24,15 @@ export function activate(context: vscode.ExtensionContext) {
         'catCoding', // Identifies the type of the webview. Used internally
         'Cat Coding', // Title of the panel displayed to the user
         vscode.ViewColumn.One, // Editor column to show the new webview panel in.
-        {} // Webview options. More on these later.
+        {
+        } // Webview options. More on these later.
       );
 
-      panel.webview.html = getWebviewContent();
+
+      const htmlPathOnDisk = vscode.Uri.file(path.join('/home/hardcorequal/Desktop/examples/next/out/index.html'));
+      var html = fs.readFileSync(htmlPathOnDisk.path).toString();
+
+      panel.webview.html = html;
     })
   );
 }
