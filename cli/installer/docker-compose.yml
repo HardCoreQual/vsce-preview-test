@@ -3,5 +3,5 @@ services:
   web:
     build: .
     volumes:
-      - ../:/code
-    working_dir: /code
+      - ../..:/code
+    working_dir: /code/cli
